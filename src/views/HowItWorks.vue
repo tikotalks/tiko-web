@@ -9,7 +9,7 @@ const bemm = useBemm('how-it-works-page');
 <template>
   <div :class="bemm()">
     <HowItWorksSection />
-    <div :class="bemm('hero-section')">
+    <section :class="bemm('hero-section')">
       <div :class="bemm('container')">
         <InfoCard
           title="Empowering Every Voice"
@@ -22,10 +22,13 @@ const bemm = useBemm('how-it-works-page');
           animationStyle="float"
         />
       </div>
-    </div>
-    <div :class="bemm('additional-content')">
+    </section>
+    <section :class="bemm('additional-content')">
       <div :class="bemm('container')">
         <h2>Technical Details</h2>
+        </div>
+
+      <div :class="bemm('container')">
         <div :class="bemm('features', ['scattered'])">
           <InfoCard
             title="Speech Recognition"
@@ -54,10 +57,13 @@ const bemm = useBemm('how-it-works-page');
           />
         </div>
       </div>
-    </div>
-    <div :class="bemm('mission')">
+    </section>
+    <section :class="bemm('mission')">
       <div :class="bemm('container')">
         <h2>Join Our Mission</h2>
+        </div>
+        <div :class="bemm('container')">
+
         <div :class="bemm('features', ['grid'])">
           <InfoCard
             title="For Parents"
@@ -97,7 +103,7 @@ const bemm = useBemm('how-it-works-page');
           />
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -138,54 +144,37 @@ const bemm = useBemm('how-it-works-page');
   }
 
   &__hero-section {
-    padding: var(--space-xxl) var(--space);
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, var(--color-background)) 0%, var(--color-background) 100%);
+
+    padding: var(--spacing);    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, var(--color-background)) 0%, var(--color-background) 100%);
   }
 
   &__additional-content {
-    padding: var(--space-xxl) var(--space);
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, var(--color-background)) 0%, color-mix(in srgb, var(--color-secondary) 8%, var(--color-background)) 100%);
+    padding: var(--spacing);
     position: relative;
     overflow: hidden;
 
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: -50%;
-    //   left: -50%;
-    //   width: 200%;
-    //   height: 200%;
-    //   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    //   animation: rotate 20s linear infinite;
-    // }
+    .how-it-works-page__container{
+        &:nth-child(1) {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+        &:nth-child(2) {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+        &:nth-child(3) {
+          animation: fadeInUp 1s ease-out forwards;
+        }
+
+      background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, var(--color-background)) 0%, color-mix(in srgb, var(--color-secondary) 8%, var(--color-background)) 100%);
+
+    }
+
   }
 
   &__container {
     max-width: 75em;
     margin: 0 auto;
-    padding: 0 var(--space-l);
+    padding: var(--spacing);
 
-    h2 {
-      text-align: center;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-     background-clip: text;
-
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-
-      // &::after {
-      //   content: '';
-      //   position: absolute;
-      //   bottom: -0.5em;
-      //   left: 25%;
-      //   width: 50%;
-      //   height: 4px;
-      //   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-      //   border-radius: 2px;
-      // }
-    }
   }
 
   &__features {
@@ -210,22 +199,7 @@ const bemm = useBemm('how-it-works-page');
   }
 
   &__mission {
-    padding: var(--space-xxl) var(--space);
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-secondary) 8%, var(--color-background)) 0%, color-mix(in srgb, var(--color-tertiary) 8%, var(--color-background)) 100%);
-    position: relative;
-    overflow: hidden;
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100%;
-    //   background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="4" fill="rgba(255,255,255,0.1)"/></svg>');
-    //   opacity: 0.5;
-    //   animation: floatBackground 20s linear infinite;
-    // }
+    padding: var(--spacing);
   }
 
 }

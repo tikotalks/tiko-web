@@ -37,7 +37,6 @@ const bemm = useBemm('intro');
 <style lang="scss">
 .intro {
   padding: var(--spacing);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-secondary), var(--color-background) 25%)0%, var(--color-secondary) 100%);
   color: var(--text-primary);
   position: relative;
   overflow: hidden;
@@ -94,25 +93,17 @@ const bemm = useBemm('intro');
     }
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
-    animation: rotate 30s linear infinite;
-  }
 
   &__container {
+border-radius: var(--border-radius);
     padding: var(--spacing);
-    max-width: 75em;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: var(--space-xxl);
     align-items: center;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-secondary), var(--color-background) 25%)0%, var(--color-secondary) 100%);
+
 
     @media screen and (max-width: 960px){
       grid-template-columns: 1fr;

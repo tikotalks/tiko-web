@@ -7,8 +7,7 @@ const bemm = useBemm('header');
 const navigation = {
   menu: [
     { id: 'about', label: 'About', link: '/about' },
-    { id: 'how-it-works', label: 'How it Works', link: '/how-it-works' },
-    { id: 'open-source', label: 'Open Source', link: '/open-source' }
+    { id: 'how-it-works', label: 'How it Works', link: '/how-it-works' }
   ]
 };
 </script>
