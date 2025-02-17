@@ -11,7 +11,7 @@ const bemm = useBemm('open-source');
   <div :class="bemm()">
     <section :class="bemm('hero')">
       <div :class="bemm('container')">
-        <h1>Open Source & Community</h1>
+        <h1>Open Source <br/>& Community</h1>
         <p>Join us in making speech therapy accessible to everyone through open-source collaboration.</p>
       </div>
     </section>
@@ -43,8 +43,8 @@ const bemm = useBemm('open-source');
             <li>Translations</li>
           </ul>
           <ButtonGroup align="center">
-            <Button :type="ButtonSettings.Type.Default">View on GitHub</Button>
-            <Button :type="ButtonSettings.Type.Default">Read Contributing Guide</Button>
+            <Button :color="ButtonSettings.Color.Primary" :type="ButtonSettings.Type.Default">View on GitHub</Button>
+            <Button  :color="ButtonSettings.Color.Secondary"  :type="ButtonSettings.Type.Default">Read Contributing Guide</Button>
           </ButtonGroup>
         </div>
       </div>
@@ -65,23 +65,34 @@ const bemm = useBemm('open-source');
     color: var(--text-primary);
     text-align: center;
 
+    .open-source__container {
+      margin: auto;
+      width: fit-content;
+    }
+
 
 
   }
 
   &__content {
-    padding:var(--spacing);
+    padding: var(--spacing);
     flex: 1;
   }
 
-  &__container {
-
-  }
+  &__container {}
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
     gap: var(--space-xl);
+  }
+
+  &__card{
+    padding: var(--spacing);
+    background-image: radial-gradient(at 20% 20%,  color-mix(in srgb, var(--color-secondary), transparent 75%), var(--color-background));
+    color: var(--text-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
   }
 
 }

@@ -175,8 +175,10 @@ const isTextOnly = computed(() => {
     padding: .75em 1.5em;
     transition: all 0.3s ease;
 
+    --int-button-color-hover: color-mix(in srgb, var(--int-button-color), var(--color-background) 12.5%);
+
     &:hover {
-      background-color: var(--button-color-hover, var(--custom-button-color-hover, var(--button-color)));
+      background-color: var(--button-color-hover, var(--int-button-color-hover, var(--int-button-color, var(--button-color))));
     }
   }
 

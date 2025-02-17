@@ -19,8 +19,8 @@ const bemm = useBemm('intro');
           Built with experts, therapists, and parents, our goal is simple: make high-quality speech support accessible
           to every child, everywhere.</p>
         <ButtonGroup :class="bemm('cta')" align="center">
-          <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large">Join the Beta</Button>
-          <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large">Learn More</Button>
+          <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large" :color="ButtonSettings.Color.Tertiary">Join the Beta</Button>
+          <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large"  :color="ButtonSettings.Color.Primary">Learn More</Button>
         </ButtonGroup>
       </div>
       <div :class="bemm('features')">

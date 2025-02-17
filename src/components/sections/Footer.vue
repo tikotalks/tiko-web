@@ -26,16 +26,21 @@ const footerNavigation:{
   support: {
     title: 'Support',
     links: [
-      { label: 'Funding', to: '/funding' }
+      { label: 'Funding', to: '/funding' },
+      { label: 'Sponsors', to: '/sponsors' },
+      { label: 'Donate', to: '/donate' },
+      { label: 'Become a Sponsor', to: '/sponsors' },
     ]
   },
   contact: {
     title: 'Contact',
     links: [
-      { label: 'Email: hello@tikoapp.com', href: 'mailto:hello@tikoapp.com' },
-      { label: 'Twitter', href: '#' },
+      { label: 'hello@tikoapp.com', href: 'mailto:hello@tikoapp.com' },
       { label: 'LinkedIn', href: '#' },
-      { label: 'Facebook', href: '#' }
+      { label: 'Facebook', href: '#' },
+      { label: 'Instagram', href: '#' },
+      { label: 'TikTok', href: '#' },
+      { label: 'X', href: '#' },
     ]
   },
   legal: {
@@ -43,11 +48,13 @@ const footerNavigation:{
     links: [
       { label: 'Privacy Policy', to: '/legal/privacy' },
       { label: 'Terms of Service', to: '/legal/terms' },
+      { label: 'Cookie Policy', to: '/legal/cookies' },
     ]
   },
   community: {
     title: 'Community',
     links: [
+      { label: 'Documentation', to: '/docs'},
       { label: 'Open Source', to: '/open-source' },
       { label: 'GitHub', href: 'https://github.com/tiko' },
     ]
@@ -112,6 +119,9 @@ const footerNavigation:{
       font-size: 1em;
       font-weight: 600;
       color: var(--color-foreground);
+      opacity: .25;
+      display: block;
+    padding: var(--space-s);
     }
 
     &-links {
@@ -129,6 +139,8 @@ const footerNavigation:{
     color: var(--color-foreground-alt);
     text-decoration: none;
     transition: color 0.2s ease;
+    display: block;
+    padding: var(--space-s);
 
     &:hover {
       color: var(--color-primary);
@@ -144,6 +156,7 @@ const footerNavigation:{
 
   &__copyright {
     font-size: 0.875em;
+  opacity: .25;
     color: var(--color-foreground-alt);
   }
 }
