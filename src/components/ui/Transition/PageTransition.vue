@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { useBemm } from 'bemm';
 
-const bemm = useBemm('page-transition');
+const bemm = useBemm('page-transition',{
+  return: 'string'
+});
 </script>
 
 <template>
   <transition
-    :enter-active-class="bemm('enter-active')"
-    :enter-from-class="bemm('enter-from')"
-    :enter-to-class="bemm('enter-to')"
-    :leave-active-class="bemm('leave-active')"
-    :leave-from-class="bemm('leave-from')"
-    :leave-to-class="bemm('leave-to')"
+    :enter-active-class="bemm('enter-active') as string"
+    :enter-from-class="bemm('enter-from') as string"
+    :enter-to-class="bemm('enter-to') as string"
+    :leave-active-class="bemm('leave-active') as string"
+    :leave-from-class="bemm('leave-from') as string"
+    :leave-to-class="bemm('leave-to') as string"
     mode="out-in"
   >
     <slot></slot>

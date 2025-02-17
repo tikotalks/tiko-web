@@ -146,7 +146,7 @@ const handleClickOutside = (event: MouseEvent) => {
 onMounted(() => {
   window.addEventListener('click', handleClickOutside);
 
-  eventBus.on(EventChannel.CONTEXT, (p) => {
+  eventBus.on(EventChannel.CONTEXT, (p: unknown) => {
     const payload = p as EventData;
 
     if (contextConfig.id !== payload.data.id) return;

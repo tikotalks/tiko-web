@@ -15,28 +15,20 @@ const bemm = useBemm('intro');
       <div :class="bemm('content')">
         <h2>Helping Every Child Find Their Voice</h2>
         <h3>For free, forever..</h3>
-        <p>Tiko is an open-source, community-driven speech therapy app designed to help children with speech disorders. Built with experts, therapists, and parents, our goal is simple: make high-quality speech support accessible to every child, everywhere.</p>
+        <p>Tiko is an open-source, community-driven speech therapy app designed to help children with speech disorders.
+          Built with experts, therapists, and parents, our goal is simple: make high-quality speech support accessible
+          to every child, everywhere.</p>
         <ButtonGroup :class="bemm('cta')" align="center">
           <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large">Join the Beta</Button>
           <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large">Learn More</Button>
         </ButtonGroup>
       </div>
       <div :class="bemm('features')">
-        <InfoCard
-          title="Interactive Learning"
-          description="Fun and engaging exercises designed by speech therapy experts"
-          icon="gamepad"
-          colorScheme="accent"
-        />
-        <InfoCard
-          title="AI-Powered"
-          description="Real-time feedback and personalized progress tracking"
-
-            :icon="Icons.AI_FACE"
-          colorScheme="primary"
-          animationStyle="float"
-          size="large"
-        />
+        <InfoCard title="Interactive Learning"
+          description="Fun and engaging exercises designed by speech therapy experts" icon="gamepad"
+          colorScheme="accent" />
+        <InfoCard title="AI-Powered" description="Real-time feedback and personalized progress tracking"
+          :icon="Icons.AI_FACE" colorScheme="primary" animationStyle="float" size="large" />
       </div>
     </div>
   </section>
@@ -44,11 +36,63 @@ const bemm = useBemm('intro');
 
 <style lang="scss">
 .intro {
-  padding:var(--spacing);
-  background: linear-gradient(135deg,color-mix(in srgb, var(--color-secondary), var(--color-background) 25% )0%, var(--color-secondary) 100%);
+  padding: var(--spacing);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-secondary), var(--color-background) 25%)0%, var(--color-secondary) 100%);
   color: var(--text-primary);
   position: relative;
   overflow: hidden;
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    70% {
+      transform: scale(0.9);
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
   &::before {
     content: '';
@@ -57,7 +101,7 @@ const bemm = useBemm('intro');
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
     animation: rotate 30s linear infinite;
   }
 
@@ -79,12 +123,12 @@ const bemm = useBemm('intro');
       // text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
       // animation: bounceIn 1s ease-out;
       color: var(--text-secondary);
-      text-shadow:1px 1px 3px var(--color-dark), 3px 3px 0px var(--color-primary),-3px -3px 0px var(--color-secondary);
+      text-shadow: 1px 1px 3px var(--color-dark), 3px 3px 0px var(--color-primary), -3px -3px 0px var(--color-secondary);
 
     }
 
     p {
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
       animation: fadeInUp 0.8s ease-out 0.3s both;
     }
   }
@@ -94,7 +138,7 @@ const bemm = useBemm('intro');
     gap: var(--space-l);
     transform: translateY(-2rem);
 
-    > * {
+    >* {
       &:nth-child(2) {
         transform: translateX(2rem);
       }
@@ -107,26 +151,5 @@ const bemm = useBemm('intro');
     animation: fadeIn 0.8s ease-out 0.6s both;
   }
 
-  @keyframes bounceIn {
-    0% { transform: scale(0.3); opacity: 0; }
-    50% { transform: scale(1.05); }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  @keyframes fadeInUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
 }
 </style>

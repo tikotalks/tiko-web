@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { useBemm } from 'bemm';
+import { type PropType } from "vue";
 import Icon from '../Icon/Icon.vue';
 
 const bemm = useBemm('tech-feature-card');
@@ -21,15 +22,33 @@ type ColorScheme = 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'accent
 type Layout = 'vertical' | 'horizontal';
 type Size = 'small' | 'medium' | 'large';
 
-defineProps<{
-  icon?: string;
-  title: string;
-  description: string;
-  colorScheme?: ColorScheme;
-  layout?: Layout;
-  size?: Size;
-}>();
-</script>
+defineProps({
+  icon: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+  description: {
+    type: String,
+    default: '',
+  },
+  colorScheme: {
+    type: String as PropType<ColorScheme>,
+    default: 'primary',
+  },
+  layout: {
+    type: String as PropType<Layout>,
+    default: 'vertical',
+  },
+  size: {
+    type: String as PropType<Size>,
+    default:'medium',
+  }
+})
+ </script>
 
 <style lang="scss">
 .tech-feature-card {

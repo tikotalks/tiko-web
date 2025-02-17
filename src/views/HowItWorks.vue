@@ -107,6 +107,36 @@ const bemm = useBemm('how-it-works-page');
   display: flex;
   flex-direction: column;
 
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes floatBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 60px 60px;
+    }
+  }
+
   &__hero-section {
     padding: var(--space-xxl) var(--space);
     background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, var(--color-background)) 0%, var(--color-background) 100%);
@@ -198,33 +228,5 @@ const bemm = useBemm('how-it-works-page');
     // }
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes floatBackground {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 60px 60px;
-    }
-  }
 }
 </style>
