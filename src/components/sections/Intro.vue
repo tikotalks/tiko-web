@@ -113,6 +113,10 @@ const bemm = useBemm('intro');
     grid-template-columns: 1.5fr 1fr;
     gap: var(--space-xxl);
     align-items: center;
+
+    @media screen and (max-width: 960px){
+      grid-template-columns: 1fr;
+    }
   }
 
   &__content {
