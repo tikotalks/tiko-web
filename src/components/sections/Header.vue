@@ -46,16 +46,23 @@ const navigation = {
   padding: var(--space);
   width: 100%;
 
+  @media screen and (max-width: 960px) {
+    padding-top: 0;
+  }
+
   &__container {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: color-mix(in srgb, var(--color-background), transparent 90%);
-    max-width: 75em;
     backdrop-filter: blur(8px);
     padding: var(--space);
     border-radius: var(--border-radius);
+
+    @media screen and (max-width: 960px) {
+      padding: var(--space);
+    }
   }
 
   &__list {
@@ -72,7 +79,8 @@ const navigation = {
 
     color: var(--color-foreground);
     text-decoration: none;
-    display: block; padding:var(--space-s) var(--space);
+    display: block;
+    padding: var(--space-s) var(--space);
     border-radius: var(--border-radius);
 
     &:hover {
@@ -93,7 +101,7 @@ const navigation = {
     a {
       text-decoration: none;
       color: var(--color-foreground);
-      text-shadow:1px 1px 3px var(--color-dark), 3px 3px 0px var(--color-primary),-3px -3px 0px var(--color-secondary);
+      text-shadow: 1px 1px 3px var(--color-dark), 3px 3px 0px var(--color-primary), -3px -3px 0px var(--color-secondary);
 
       &:hover {
         color: var(--color-primary);

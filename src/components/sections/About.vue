@@ -2,6 +2,8 @@
 import { useBemm } from 'bemm';
 import InfoCard from '../ui/Card/InfoCard.vue';
 import { Icons } from 'open-icon';
+import { Image } from "@tikotalks/media";
+import PageHeader from './PageHeader.vue';
 
 const bemm = useBemm('about');
 
@@ -45,21 +47,22 @@ const features = [
 </script>
 
 <template>
-  <section :class="bemm('section')" id="about">
-    <div :class="bemm('container')">
+  <PageHeader :image="Image.ZEBRA">
+    <template #title>
       <h2>About Tiko</h2>
-      <p>At Tiko, we believe that every child has the right to communicate—regardless of income, location, or access to
-        therapy. Speech disorders can impact a child's confidence, learning, and social development, yet therapy remains
-        expensive and out of reach for many.</p>
+    </template>
+    <template #description>
+      <p>Tiko was created with one simple belief — every child deserves a voice. We’re on a mission to make communication easy, accessible, and free for all children, not just those who can afford it. Existing tools are often expensive, complicated, and slow to reach those in need. Tiko changes that by offering beautifully designed, intuitive apps that empower children to express themselves, connect, and grow — all without barriers.</p>
+    </template>
 
-    </div>
-  </section>
+  </PageHeader>
+
   <section :class="bemm('section')">
     <div :class="bemm('container')">
       <div :class="bemm('features')">
-      <InfoCard v-for="feature in features" :key="feature.title" :icon="feature.icon" :title="feature.title"
-        :description="feature.description" />
-        </div>
+        <InfoCard v-for="feature in features" :key="feature.title" :icon="feature.icon" :title="feature.title"
+          :description="feature.description" />
+      </div>
     </div>
   </section>
 </template>
@@ -69,9 +72,7 @@ const features = [
   padding: var(--spacing);
 
 
-  &__container {
-
-  }
+  &__container {}
 
   &__features {
     display: grid;
@@ -79,13 +80,14 @@ const features = [
     gap: var(--space-xl);
   }
 
-  &__section{
+  &__section {
     padding: var(--spacing);
   }
-  &__container{
+
+  &__container {
     padding: var(--spacing);
 
-    @media screen and (max-width: 960px){
+    @media screen and (max-width: 960px) {
       padding: 0;
     }
   }

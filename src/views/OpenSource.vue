@@ -3,18 +3,22 @@ import { useBemm } from 'bemm';
 import Button from '../components/ui/Button/Button.vue';
 import ButtonGroup from '../components/ui/Button/ButtonGroup.vue';
 import { ButtonSettings } from '../components/ui/Button/Button.model';
-
+import PageHeader from '@/components/sections/PageHeader.vue';
 const bemm = useBemm('open-source');
 </script>
 
 <template>
   <div :class="bemm()">
-    <section :class="bemm('hero')">
-      <div :class="bemm('container')">
-        <h1>Open Source <br/>& Community</h1>
-        <p>Join us in making speech therapy accessible to everyone through open-source collaboration.</p>
-      </div>
-    </section>
+
+
+    <PageHeader>
+      <template #title>
+   `   <h2>Open Source <br/>& Community</h2>
+  </template>
+      <template #description>
+        <p>Tiko is proudly open-source because we believe the best tools are built together. By making our code and resources freely available, we invite developers, designers, and communication experts to collaborate, improve, and expand Tiko for every child’s benefit. Whether you're fixing bugs, adding features, or sharing feedback, your contributions help make communication accessible to all — for free.</p>
+      </template>
+    </PageHeader>
 
     <section :class="bemm('content')">
       <div :class="bemm('container')">

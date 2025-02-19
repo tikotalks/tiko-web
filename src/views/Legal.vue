@@ -2,18 +2,23 @@
 import { useBemm } from 'bemm';
 import Button from '../components/ui/Button/Button.vue';
 import { ButtonSettings } from '../components/ui/Button/Button.model';
-
+import PageHeader from '@/components/sections/PageHeader.vue';
 const bemm = useBemm('legal');
 </script>
 
 <template>
   <div :class="bemm()">
-    <section :class="bemm('hero')">
-      <div :class="bemm('container')">
-        <h1>Legal & Privacy</h1>
+
+
+    <PageHeader>
+      <template #title>
+        <h2>Legal & Privacy</h2>
+      </template>
+      <template #description>
         <p>Our commitment to protecting your privacy and ensuring compliance</p>
-      </div>
-    </section>
+      </template>
+    </PageHeader>
+
 
     <section :class="bemm('content')">
       <div :class="bemm('container')">

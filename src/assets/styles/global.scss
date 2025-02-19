@@ -26,14 +26,6 @@ body {
 }
 
 
-// Section spacing
-section {
-  padding: var(--space-xl) 0;
-
-  &:first-of-type {
-    padding-top: calc(var(--spacing) * 4);
-  }
-}
 
 // Container width control
 .container {

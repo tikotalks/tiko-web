@@ -51,6 +51,10 @@ const bemm = useBemm('app-card');
   align-items: flex-start;
 position: relative;
 
+@media screen and (max-width: 960px) {
+  flex-direction: column;
+}
+
   &__header {
     display: flex;
     align-items: center;
@@ -108,6 +112,9 @@ position: relative;
     flex-shrink: 0;
     height: auto;
 
+    @media screen and (max-width: 960px) {
+  width: 100%;
+}
 
     img {
       width: 100%; height: 100%;

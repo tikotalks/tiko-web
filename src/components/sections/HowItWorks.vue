@@ -2,6 +2,8 @@
 import { useBemm } from 'bemm';
 import StepCard from '../ui/Card/StepCard.vue';
 import { Icons } from 'open-icon';
+import PageHeader from './PageHeader.vue';
+import { Image } from '@tikotalks/media';
 
 const bemm = useBemm('how-it-works');
 
@@ -31,12 +33,17 @@ const steps = [
 </script>
 
 <template>
-  <section :class="bemm('section',['','hero'])" id="how-it-works">
-    <div :class="bemm('container')">
+
+
+  <PageHeader  :image="Image.IGUANA">
+    <template #title>
       <h2>How It Works</h2>
-      <p>Experience the power of interactive speech therapy</p>
-    </div>
-  </section>
+    </template>
+    <template #description>
+      <p>Tiko makes communication simple. Our apps use intuitive visuals and easy-to-navigate boards, guiding children from basic responses to building sentences. No complex setups or logins — just open the app and start communicating. Designed for independent use, with future options for teachers, therapists, and parents to customize boards and exercises, Tiko adapts to each child’s needs while keeping things fun and engaging.</p>
+    </template>
+  </PageHeader>
+
   <section :class="bemm('section')" id="how-it-works">
     <div :class="bemm('container')">
       <div :class="bemm('steps')">
@@ -55,7 +62,8 @@ const steps = [
 
   &__section {
     padding: var(--spacing);
-    &--hero{
+
+    &--hero {
       font-size: 1.5em;
     }
   }

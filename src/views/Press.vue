@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useBemm } from 'bemm';
-import Button from '../components/ui/Button/Button.vue';
-import { ButtonSettings } from '../components/ui/Button/Button.model';
+import Button from '@/components/ui/Button/Button.vue';
+import { ButtonSettings } from '@/components/ui/Button/Button.model';
+import PageHeader from '@/components/sections/PageHeader.vue';
+import { Image } from '@tikotalks/media';
 
 const bemm = useBemm('press');
 
@@ -38,12 +40,17 @@ const researchPapers = [
 
 <template>
   <div :class="bemm()">
-    <section :class="bemm('hero')">
-      <div :class="bemm('container')">
-        <h1>Press & Research</h1>
-        <p>Latest news, research, and media coverage about Tiko</p>
-      </div>
-    </section>
+
+
+    <PageHeader :image="Image.PHOTOGRAPHER">
+      <template #title>
+        <h2>Press<br />& Research</h2>
+      </template>
+      <template #description>
+        <p>Tiko is on a mission to make communication accessible to every child — for free. Our open-source, beautifully designed apps empower children of all abilities to express themselves with confidence. For press inquiries, stories, or collaborations, get in touch and help us spread the word about making communication a right, not a privilege.</p>
+      </template>
+    </PageHeader>
+
 
     <section :class="bemm('content')">
       <div :class="bemm('container')">

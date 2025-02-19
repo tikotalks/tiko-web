@@ -4,6 +4,7 @@ import Icon from '../ui/Icon/Icon.vue';
 import Button from '../ui/Button/Button.vue';
 import { ButtonSettings } from '../ui/Button/Button.model';
 import { Icons } from 'open-icon';
+import PageHeader from './PageHeader.vue';
 
 const bemm = useBemm('cta');
 
@@ -33,25 +34,27 @@ const groups = [
 
 <template>
   <section :class="bemm()" id="cta">
-    <div :class="bemm('container')">
-      <div :class="bemm('content')">
-
-      <h2>Join Our Mission</h2>
-      <p>Help us make speech therapy accessible to every child who needs it.</p>
-    </div>
+    <PageHeader>
+      <template #title>
+        <h1>Join Our Mission</h1>
+      </template>
+      <template #description>
+        <p>Help us make speech therapy accessible to every child who needs it.</p>
+      </template>
+    </PageHeader>
     <div :class="bemm('grid')">
-        <div v-for="group in groups" :key="group.title" :class="[bemm('card'),'gradient']">
-          <div :class="[bemm('card-icon'), 'blob','gradient']">
-            <Icon :name="group.icon" size="large" />
-          </div>
-          <h3>{{ group.title }}</h3>
-          <p>{{ group.description }}</p>
+      <div v-for="group in groups" :key="group.title" :class="[bemm('card'), 'gradient']">
+        <div :class="[bemm('card-icon'), 'blob', 'gradient']">
+          <Icon :name="group.icon" size="large" />
         </div>
-      </div>
-      <div :class="bemm('action')">
-        <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large">Join the Beta</Button>
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.description }}</p>
       </div>
     </div>
+    <div :class="bemm('action')">
+      <Button :type="ButtonSettings.Type.Default" :size="ButtonSettings.Size.Large">Join the Beta</Button>
+    </div>
+
   </section>
 </template>
 
@@ -68,9 +71,11 @@ const groups = [
     margin: 0 auto;
     text-align: center;
 
-    display: flex; flex-direction:column; gap: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
 
-    h2{
+    h2 {
       color: var(--text-primary);
     }
 

@@ -5,19 +5,42 @@ import AppCard from '@/components/ui/Card/AppCard.vue';
 import Button from '@/components/ui/Button/Button.vue';
 import ButtonGroup from '@/components/ui/Button/ButtonGroup.vue';
 import { ButtonSettings } from '@/components/ui/Button/Button.model';
+import PageHeader from '@/components/sections/PageHeader.vue';
+import { Image } from '@tikotalks/media';
 
 const bemm = useBemm('apps-page');
 </script>
 
 <template>
+  <PageHeader :image="Image.COMPUTER_SCREEN">
+    <template #title>
+      <h2>Our Apps</h2>
+    </template>
+    <template #description>
+      <p>Tiko’s apps are designed to make communication easy, fun, and accessible for every child. From simple yes/no answers to building sentences and expressing needs, our tools help children connect with others and express themselves confidently — all in a safe, intuitive, and engaging way. And best of all, they’re completely free.</p>
+    </template>
+  </PageHeader>
   <div :class="bemm()">
-    <section :class="bemm('hero')">
-      <h1>Our Apps</h1>
-      <p>Discover our suite of AI-powered applications</p>
-    </section>
-
     <section :class="bemm('grid')">
-      <AppCard v-for="app in apps" :key="app.id" :title="app.name" :description="app.description" :icon="app.icon"
+      <h2>Apps</h2>
+      <AppCard v-for="app in apps.filter((a)=>a.category == 'app')" :key="app.id" :title="app.name" :description="app.description" :icon="app.icon"
+        :tags="app.tags" :image="app.image?.thumbnail">
+        <template #actions>
+          <ButtonGroup>
+            <Button :size="ButtonSettings.Size.Small" :color="ButtonSettings.Color.Primary" :to="`/apps/${app.id}`" :icon="ButtonSettings.Icon.ARROW_RIGHT">Learn More</Button>
+            <Button :size="ButtonSettings.Size.Small" :color="ButtonSettings.Color.Secondary" v-if="app.downloads[0]" :to="app.downloads[0].url" :icon="ButtonSettings.Icon.ARROW_DOWNLOAD">
+              Try Now
+            </Button>
+          </ButtonGroup>
+        </template>
+      </AppCard>
+    </section>
+    </div>
+
+  <div :class="bemm()">
+    <section :class="bemm('grid')">
+      <h2>Libraries</h2>
+      <AppCard v-for="app in apps.filter((a)=>a.category == 'library')" :key="app.id" :title="app.name" :description="app.description" :icon="app.icon"
         :tags="app.tags" :image="app.image?.thumbnail">
         <template #actions>
           <ButtonGroup>
@@ -34,19 +57,9 @@ const bemm = useBemm('apps-page');
 
 <style lang="scss">
 .apps-page {
-  max-width: 75em;
-  margin: 0 auto;
-  padding: var(--space-xl);
+  padding: var(--spacing);
 
-  &__hero {
-    text-align: center;
-    margin-bottom: var(--space-xxl);
 
-    p {
-      font-size: 1.2em;
-      color: var(--color-text-light);
-    }
-  }
 
   &__grid {
     display: flex;

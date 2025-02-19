@@ -4,17 +4,21 @@ import Button from '../components/ui/Button/Button.vue';
 import { ButtonSettings } from '../components/ui/Button/Button.model';
 import InfoCard from '@/components/ui/Card/InfoCard.vue';
 import { Icons } from "open-icon";
+import PageHeader from '@/components/sections/PageHeader.vue';
+import { Image } from '@tikotalks/media';
 const bemm = useBemm('funding');
 </script>
 
 <template>
   <div :class="bemm()">
-    <section :class="bemm('hero')">
-      <div :class="bemm('container')">
-        <h1>Support Tiko</h1>
-        <p>Help us keep speech therapy accessible to every child who needs it.</p>
-      </div>
-    </section>
+    <PageHeader :image="Image.HELICOPTER">
+      <template #title>
+        <h2>Support Tiko</h2>
+      </template>
+      <template #description>
+        <p>Your support helps Tiko give every child a voice. Whether you're a parent, teacher, therapist, developer, or advocate, there are many ways to get involved — from sharing feedback and contributing code to helping us spread the word. Together, we can make communication accessible to all children, for free. Need help or want to contribute? We’re here for you.</p>
+      </template>
+    </PageHeader>
 
     <section :class="bemm('content')">
       <div :class="bemm('container')">
@@ -39,7 +43,8 @@ const bemm = useBemm('funding');
               </InfoCard>
               <InfoCard title="Monthly Support" description="Become a sustaining supporter with monthly donations"
                 :icon="Icons.HEART_M">
-                <Button :type="ButtonSettings.Type.Default" :color="ButtonSettings.Color.Primary">Become a Supporter</Button>
+                <Button :type="ButtonSettings.Type.Default" :color="ButtonSettings.Color.Primary">Become a
+                  Supporter</Button>
               </InfoCard>
             </div>
           </div>
