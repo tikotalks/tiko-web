@@ -41,6 +41,8 @@ const bemm = useBemm('intro');
   position: relative;
   overflow: hidden;
 
+  padding-top: calc(var(--spacing) * 3);
+
   @keyframes bounceIn {
     0% {
       transform: scale(0.3);

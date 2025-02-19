@@ -33,15 +33,15 @@ const groups = [
 </script>
 
 <template>
+  <PageHeader>
+    <template #title>
+      <h1>Join Our Mission</h1>
+    </template>
+    <template #description>
+      <p>Help us make speech therapy accessible to every child who needs it.</p>
+    </template>
+  </PageHeader>
   <section :class="bemm()" id="cta">
-    <PageHeader>
-      <template #title>
-        <h1>Join Our Mission</h1>
-      </template>
-      <template #description>
-        <p>Help us make speech therapy accessible to every child who needs it.</p>
-      </template>
-    </PageHeader>
     <div :class="bemm('grid')">
       <div v-for="group in groups" :key="group.title" :class="[bemm('card'), 'gradient']">
         <div :class="[bemm('card-icon'), 'blob', 'gradient']">

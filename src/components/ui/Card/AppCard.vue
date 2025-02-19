@@ -51,8 +51,37 @@ const bemm = useBemm('app-card');
   align-items: flex-start;
 position: relative;
 
+animation: itemIn linear forwards, itemOut linear forwards;
+    animation-timeline: view();
+    animation-range: entry, exit;
+
 @media screen and (max-width: 960px) {
   flex-direction: column;
+}
+
+@keyframes itemIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+    z-index: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+    z-index: 3;
+  }
+}
+@keyframes itemOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+    z-index: 3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    z-index: 0;
+  }
 }
 
   &__header {

@@ -60,13 +60,37 @@ onMounted(() => {
   gap: var(--spacing);
   background-color: var(--color-background);
 
+  animation: headerPosition linear both;
+  animation-timeline: scroll();
+  animation-range: 0 50vh;
+
   &:first-of-type {
     padding-top: calc(var(--spacing) * 4);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
 
 
-  // background-attachment: fixed;
+
+  @keyframes headerPosition {
+    to {
+      transform: translateY(20%);
+    }
+  }
+
+  @keyframes headerTitle {
+    to {
+      transform: translateY(100%);
+
+    }
+  }
+
+  @keyframes headerImage {
+    to {
+      background-position: 50% 50%;
+      background-size: 200%;
+    }
+  }
+
 
   &__background {
     position: absolute;
@@ -79,9 +103,12 @@ onMounted(() => {
     z-index: 0;
     background-image: var(--background-image);
     background-size: 150%;
-    background-position: center right;
-    opacity: .5;
+    background-position: 100% 50%;
+    animation: headerImage linear both;
+    animation-timeline: scroll();
+    animation-range: 0 50vh;
 
+    opacity: .5;
   }
 
   &__container {
@@ -102,6 +129,9 @@ onMounted(() => {
     width: 1fr;
     color: var(--foreground);
     font-family: var(--font-secondary);
+    animation: headerTitle ease-in-out both;
+    animation-timeline: scroll();
+    animation-range: 0 50vh;
 
     h2,
     h3 {
