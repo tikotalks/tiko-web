@@ -29,13 +29,18 @@ defineProps<{
 
 <style lang="scss">
 .info-card {
-  padding: var(--space-xl);
-  background: var(--color-background-alt);
+  padding: var(--spacing);
+  background: var(--color-background);
   border-radius: var(--border-radius);
   transition: transform 0.3s ease;
   height: 100%;
   position: relative;
 
+  max-width: calc(100vw - (var(--spacing) * 2));
+
+  @media screen and (max-width: 960px){
+    padding: var(--space-l);
+  }
 
   &:hover {
     transform: translateY(-2px);
@@ -43,7 +48,7 @@ defineProps<{
 
   &__icon {
     font-size: 4em;
-    background-color: color-mix(in srgb, var(--color-primary), transparent 25%);
+    background-color: color-mix(in srgb, var(--color-primary), transparent 33.33%);
     color: var(--text-primary);
     border-radius: 50%;
     width: 1.5em;
@@ -55,7 +60,13 @@ defineProps<{
     position: absolute;
     top: -.75em;
     left: -.75em;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
+
+    @media screen and (max-width: 960px){
+      font-size: 2.5em;
+      top: -.5em;
+      left: -.5em;
+    }
 
     .icon {
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);

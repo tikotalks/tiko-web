@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tikotalks/media": "^0.1.7",
     "bemm": "^1.2.2",
     "mitt": "^3.0.1",
     "open-icon": "^1.0.4",

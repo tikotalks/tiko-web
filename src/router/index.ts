@@ -39,6 +39,16 @@ const router = createRouter({
       path: '/roadmap',
       name: 'roadmap',
       component: () => import('../views/Roadmap.vue')
+    },
+    {
+      path: '/apps',
+      name: 'apps',
+      component: () => import('../views/Apps.vue')
+    },
+    {
+      path: '/apps/:id',
+      name: 'app-detail',
+      component: () => import('../views/AppDetail.vue')
     }
   ]
 })

@@ -32,7 +32,7 @@ defineProps<{
   grid-template-columns: 1fr;
   gap: var(--space-xl);
   padding: var(--space-xl);
-  background: var(--color-background-alt);
+  background: var(--color-background);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: transform 0.3s ease;

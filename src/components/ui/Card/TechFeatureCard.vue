@@ -53,7 +53,7 @@ defineProps({
 <style lang="scss">
 .tech-feature-card {
   padding: var(--space-xl);
-  background: var(--color-background-alt);
+  background: var(--color-background);
   border-radius: var(--border-radius);
   transition: transform 0.3s ease;
 

@@ -84,6 +84,10 @@ const features = [
   }
   &__container{
     padding: var(--spacing);
+
+    @media screen and (max-width: 960px){
+      padding: 0;
+    }
   }
 }
 </style>

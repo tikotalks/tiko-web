@@ -6,13 +6,13 @@ const bemm = useBemm('footer');
 
 const currentYear = new Date().getFullYear();
 
-const footerNavigation:{
-  [key:string]:{
-    title:string;
-    links:{
-      label:string;
-      to?:string;
-      href?:string;
+const footerNavigation: {
+  [key: string]: {
+    title: string;
+    links: {
+      label: string;
+      to?: string;
+      href?: string;
     }[];
   }
 } = {
@@ -54,7 +54,7 @@ const footerNavigation:{
   community: {
     title: 'Community',
     links: [
-      { label: 'Documentation', to: '/docs'},
+      { label: 'Documentation', to: '/docs' },
       { label: 'Open Source', to: '/open-source' },
       { label: 'GitHub', href: 'https://github.com/tiko' },
     ]
@@ -67,15 +67,21 @@ const footerNavigation:{
     <div :class="bemm('container')">
       <div :class="bemm('content')">
         <div :class="bemm('navigation')">
+          <h1>tiko</h1>
           <div v-for="(section, key) in footerNavigation" :key="key" :class="bemm('section')">
-            <h3 :class="bemm('section-title')">{{ section.title }}</h3>
-            <ul :class="bemm('section-links')">
-              <li v-for="link in section.links" :key="link.label" :class="bemm('section-item')">
+            <h3 :class="bemm('title')">{{ section.title }}</h3>
+            <ul :class="bemm('list')">
+              <li v-for="link in section.links" :key="link.label" :class="bemm('item')">
                 <RouterLink v-if="link.to" :to="link.to" :class="bemm('link')">
-                  {{ link.label }}
+                  <span :class="bemm('text')">
+                    {{ link.label }}
+
+                  </span>
                 </RouterLink>
                 <a v-else-if="link.href" :href="link.href" target="_blank" rel="noopener" :class="bemm('link')">
-                  {{ link.label }}
+                  <span :class="bemm('text')">
+                    {{ link.label }}
+                  </span>
                 </a>
               </li>
             </ul>
@@ -94,12 +100,23 @@ const footerNavigation:{
 <style lang="scss">
 .footer {
   padding: var(--spacing);
-  background: var(--color-background);
   color: var(--color-foreground);
+  padding-bottom: 0;
+
+  @media screen and (max-width: 960px){
+    padding: var(--spacing);
+    padding-left: 0;
+  }
 
   &__container {
-    max-width: 75em;
     margin: 0 auto;
+    background: var(--color-background);
+    padding: var(--spacing);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    @media screen and (max-width: 960px){
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+  }
   }
 
   &__content {
@@ -114,24 +131,24 @@ const footerNavigation:{
     gap: var(--space-xl);
   }
 
-  &__section {
-    &-title {
-      font-size: 1em;
-      font-weight: 600;
-      color: var(--color-foreground);
-      opacity: .25;
-      display: block;
+  &__title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-foreground);
+    opacity: .25;
+    display: block;
     padding: var(--space-s);
-    }
+  }
 
-    &-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-    &-item {
-    }
+
+  &__item {
+    padding: var(--space-s);
   }
 
   &__link {
@@ -139,11 +156,52 @@ const footerNavigation:{
     color: var(--color-foreground-alt);
     text-decoration: none;
     transition: color 0.2s ease;
-    display: block;
-    padding: var(--space-s);
+
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 1px;
+      background-color: currentColor;
+      width: 100%;
+      left: 0;
+      animation: lineOut .3s forwards;
+
+      transform-origin: 100% 100%;
+
+
+    }
 
     &:hover {
       color: var(--color-primary);
+      text-decoration: none;
+
+      &::before {
+        transform-origin: 0 0;
+        animation: lineIn .3s forwards;
+      }
+    }
+  }
+
+  @keyframes lineIn {
+    from {
+      transform: scale(0, 1);
+    }
+
+    to {
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes lineOut {
+    from {
+      transform: scale(1, 1);
+    }
+
+    to {
+      transform: scale(0, 1);
     }
   }
 
@@ -156,7 +214,7 @@ const footerNavigation:{
 
   &__copyright {
     font-size: 0.875em;
-  opacity: .25;
+    opacity: .25;
     color: var(--color-foreground-alt);
   }
 }

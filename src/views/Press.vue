@@ -154,7 +154,7 @@ const researchPapers = [
   &__media-contact {
     text-align: center;
     padding: var(--space-xl);
-    background: var(--color-background-alt);
+    background: var(--color-background);
     border-radius: var(--radius);
     box-shadow: 0 4px 6px color-mix(in srgb, var(--color-foreground), transparent 90%);
 

@@ -26,7 +26,7 @@ defineEmits<{
   padding: var(--space-s) var(--space);
   border: none;
   border-radius: 100px;
-  background: var(--color-background-alt);
+  background: var(--color-background);
   color: var(--color-foreground);
   cursor: pointer;
   font-size: 0.9rem;

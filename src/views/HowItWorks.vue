@@ -29,7 +29,7 @@ const bemm = useBemm('how-it-works-page');
         </div>
 
       <div :class="bemm('container')">
-        <div :class="bemm('features', ['scattered'])">
+        <div :class="bemm('features')">
           <InfoCard
             title="Speech Recognition"
             description="Our advanced AI models process speech in real-time, providing instant feedback on pronunciation and articulation."
@@ -64,7 +64,7 @@ const bemm = useBemm('how-it-works-page');
         </div>
         <div :class="bemm('container')">
 
-        <div :class="bemm('features', ['grid'])">
+        <div :class="bemm('features')">
           <InfoCard
             title="For Parents"
             description="Help your child develop strong communication skills with our free, expert-designed exercises."
@@ -153,6 +153,10 @@ const bemm = useBemm('how-it-works-page');
     position: relative;
     overflow: hidden;
 
+    @media screen and (max-width: 960px){
+      padding: 0;
+    }
+
     .how-it-works-page__container{
         &:nth-child(1) {
           animation: fadeInUp 0.6s ease-out forwards;
@@ -178,22 +182,11 @@ const bemm = useBemm('how-it-works-page');
   }
 
   &__features {
-    &--scattered {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-xl);
 
-      > :nth-child(1) { grid-column: 1 / 3; }
-      > :nth-child(4) { grid-column: 1 / 3; }
-      // > :nth-child(2) { transform: translateY(2rem); }
-      // > :nth-child(3) { transform: translateY(-2rem); }
-    }
 
-    &--grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
       gap: var(--space-xl);
-    }
 
     animation: fadeInUp 0.6s ease-out forwards;
   }
