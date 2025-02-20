@@ -35,7 +35,7 @@ const backgroundImage = ref<string>();
 
 onMounted(() => {
 
-  if(props.image.includes('http')) {
+  if(props.image?.includes('http')) {
     backgroundImage.value = `url(${props.image})`;
     return;
   }
