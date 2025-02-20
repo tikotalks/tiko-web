@@ -7,7 +7,7 @@ import Icon from '@/components/ui/Icon/Icon.vue';
 import Button from '@/components/ui/Button/Button.vue';
 import ButtonGroup from '@/components/ui/Button/ButtonGroup.vue';
 import { ButtonSettings } from '@/components/ui/Button/Button.model';
-
+import PageHeader from '@/components/sections/PageHeader.vue';
 const bemm = useBemm('app-detail');
 const route = useRoute();
 
@@ -17,19 +17,24 @@ const app = computed(() => {
 </script>
 
 <template>
+  <PageHeader v-if="app" :image="app.image?.medium">
+    <template #title>
+
+
+      <h2>{{ app.name }}  <Icon :class="bemm('icon')" v-if="app.icon" :name="app.icon"  /></h2>
+    </template>
+    <template #description>
+      <p>{{app?.description}}</p>
+      <div :class="bemm('tags')">
+              <span v-for="tag in app.tags" :key="tag" :class="bemm('tag')">{{ tag }}</span>
+            </div>
+    </template>
+  </PageHeader>
   <div v-if="app" :class="bemm()">
     <section :class="bemm('hero')">
       <div :class="bemm('hero-content')">
-        <div :class="bemm('header')">
-          <Icon :class="bemm('icon')" v-if="app.icon" :name="app.icon"  />
-          <div :class="bemm('header-text')">
-            <h1 :class="bemm('title')">{{ app.name }}</h1>
-            <div :class="bemm('tags')">
-              <span v-for="tag in app.tags" :key="tag" :class="bemm('tag')">{{ tag }}</span>
-            </div>
-          </div>
-        </div>
-        <p :class="bemm('intro')">{{ app.description }}</p>
+
+        <p :class="bemm('intro')">{{ app.fullDescription }}</p>
         <ButtonGroup v-if="app.downloads?.length">
           <Button
             v-for="download in app.downloads"
@@ -42,17 +47,13 @@ const app = computed(() => {
           </Button>
         </ButtonGroup>
       </div>
-      <div :class="bemm('hero-image')" v-if="app.image?.original">
+      <div :class="bemm('hero-image')" v-if="app.image?.medium">
         <img :src="app.image.original" :alt="app.name" />
       </div>
     </section>
 
     <!-- Content Section -->
     <section :class="bemm('content')">
-      <div :class="bemm('full-description')" v-if="app.fullDescription">
-        <div v-html="app.fullDescription"></div>
-      </div>
-
       <div :class="bemm('features')" v-if="app.features?.length">
         <h2>Key Features</h2>
         <ul>

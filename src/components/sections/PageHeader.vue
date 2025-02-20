@@ -34,6 +34,11 @@ const { getImageUrl } = useImages();
 const backgroundImage = ref<string>();
 
 onMounted(() => {
+
+  if(props.image.includes('http')) {
+    backgroundImage.value = `url(${props.image})`;
+    return;
+  }
   if (props.image) {
     backgroundImage.value = `url(${getImageUrl(props.image, 'medium')})`;
     return;
