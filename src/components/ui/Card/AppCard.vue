@@ -7,16 +7,15 @@
       <img :src="image" :alt="title" />
     </div>
     <div :class="bemm('content')">
-        <h3 :class="bemm('title')">{{ title }}</h3>
+      <h3 :class="bemm('title')">{{ title }}</h3>
 
-        <p :class="bemm('description')">{{ description }}</p>
-        <div :class="bemm('actions')">
-          <slot name="actions"></slot>
-        </div>
-        <div :class="bemm('tags')">
-          <span v-for="tag in tags" :key="tag" :class="bemm('tag')">#{{ tag }}</span>
-        </div>
-
+      <p :class="bemm('description')">{{ description }}</p>
+      <div :class="bemm('actions')">
+        <slot name="actions"></slot>
+      </div>
+      <div :class="bemm('tags')">
+        <span v-for="tag in tags" :key="tag" :class="bemm('tag')">#{{ tag }}</span>
+      </div>
     </div>
   </article>
 </template>
@@ -38,7 +37,7 @@ defineProps<Props>();
 const bemm = useBemm('app-card');
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-card {
   display: flex;
   flex-direction: row;
@@ -47,42 +46,45 @@ const bemm = useBemm('app-card');
   padding: var(--space-l);
   width: 100%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  gap:var(--space);
+  gap: var(--space);
   align-items: flex-start;
-position: relative;
+  position: relative;
 
-animation: itemIn linear forwards, itemOut linear forwards;
-    animation-timeline: view();
-    animation-range: entry, exit;
+  animation: itemIn linear forwards, itemOut linear forwards;
+  animation-timeline: view();
+  animation-range: entry, exit;
 
-@media screen and (max-width: 960px) {
-  flex-direction: column;
-}
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+  }
 
-@keyframes itemIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-    z-index: 0;
+  @keyframes itemIn {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+      z-index: 0;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+      z-index: 3;
+    }
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-    z-index: 3;
+
+  @keyframes itemOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0%);
+      z-index: 3;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-100%);
+      z-index: 0;
+    }
   }
-}
-@keyframes itemOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0%);
-    z-index: 3;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
-    z-index: 0;
-  }
-}
 
   &__header {
     display: flex;
@@ -142,11 +144,12 @@ animation: itemIn linear forwards, itemOut linear forwards;
     height: auto;
 
     @media screen and (max-width: 960px) {
-  width: 100%;
-}
+      width: 100%;
+    }
 
     img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       display: block;
       object-fit: cover;
     }

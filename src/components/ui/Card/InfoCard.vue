@@ -85,6 +85,7 @@ defineProps<{
     margin: 0;
     color: var(--color-foreground-alt);
     line-height: 1.5;
+    opacity: .75;
   }
 
   &--primary {

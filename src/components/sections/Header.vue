@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useBemm } from 'bemm';
 import { RouterLink } from 'vue-router';
+import { useScroll } from '@/composables/useScroll';
 
 const bemm = useBemm('header');
+useScroll();
 
 const navigation = {
   menu: [
@@ -36,7 +38,7 @@ const navigation = {
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
   padding: var(--space);
   position: fixed;
@@ -45,6 +47,22 @@ const navigation = {
   margin: auto;
   padding: var(--space);
   width: 100%;
+  transition: transform 0.3s ease-in-out;
+
+  body.scroll-down & {
+    transform: translateY(-100%);
+  }
+
+  body.scroll-up & {
+    transform: translateY(0);
+  }
+
+  body.on-top & {
+    &__container {
+      background: transparent;
+      backdrop-filter: none;
+    }
+  }
 
   @media screen and (max-width: 960px) {
     padding-top: 0;
